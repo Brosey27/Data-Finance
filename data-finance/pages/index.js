@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Image from "next/image";
 import Head from "next/head";
@@ -15,7 +15,75 @@ import {
 } from 'react-icons/fa';
 
 
-export default function Home() {
+
+
+function useTypewriter(phrases, typingDelay, erasingDelay, pauseDelay) {
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [currentTypingText, setCurrentTypingText] = useState("");
+  const [isErasing, setIsErasing] = useState(false); // New state to track erasing
+
+  useEffect(() => {
+    let isMounted = true;
+    let timeout;
+
+    const type = () => {
+      if (!isMounted) return;
+
+      if (!isErasing) {
+        if (currentTypingText.length < phrases[currentPhraseIndex].length) {
+          setCurrentTypingText((prevText) =>
+            phrases[currentPhraseIndex].substring(0, prevText.length + 1)
+          );
+          timeout = setTimeout(type, typingDelay);
+        } else {
+          setIsErasing(true); // Transition to erasing state
+          timeout = setTimeout(() => {
+            setIsErasing(false); // Transition back to typing state
+            erase();
+          }, pauseDelay);
+        }
+      } else {
+        erase();
+      }
+    };
+
+    const erase = () => {
+      if (!isMounted) return;
+
+      if (currentTypingText.length > 0) {
+        setCurrentTypingText((prevText) =>
+          prevText.substring(0, prevText.length - 1)
+        );
+        timeout = setTimeout(erase, erasingDelay);
+      } else {
+        const nextIndex = (currentPhraseIndex + 1) % phrases.length;
+        setCurrentPhraseIndex(nextIndex);
+        setIsErasing(false); // Reset erasing state
+        timeout = setTimeout(type, typingDelay);
+      }
+    };
+
+    timeout = setTimeout(type, typingDelay);
+
+    return () => {
+      clearTimeout(timeout);
+      isMounted = false;
+    };
+  }, [currentPhraseIndex, currentTypingText, phrases, typingDelay, erasingDelay, pauseDelay, isErasing]);
+
+  return currentTypingText;
+}
+export default function TypewriterEffect() {
+  const phrases = ["BTB", "BTC", "SASS"];
+  const typingDelay = 200;
+  const erasingDelay = 100;
+  const pauseDelay = 5000;
+
+  const currentTypingText = useTypewriter(phrases, typingDelay, erasingDelay, pauseDelay);
+
+  
+
+  
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -64,7 +132,8 @@ export default function Home() {
           Grow with data.
         </h1>
         <div className="flex justify-center items-center">
-          <p className='md:text-5xl sm:text-4xl text-xl font-bold py-4'>Fast, flexible, financing for BTB, BTC and SASS.</p>
+          <p className='md:text-5xl sm:text-4xl text-xl font-bold py-4'>Fast, flexible, financing for{" "}
+            <span className="text-[#00df9a]">{currentTypingText}</span></p>
        
         </div>
         <p className='md:text-2xl text-xl font-bold text-gray-500'>Monitor your data analytics to increase revenue for BTB, BTC, & SASS platforms.</p>
@@ -209,3 +278,4 @@ export default function Home() {
     
   );
 }
+
