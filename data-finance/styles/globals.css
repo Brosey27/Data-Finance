@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.hover-up-down {
+  animation: hoverUpDown 3s infinite alternate; /* Adjust duration and animation properties as needed */
+}
+
+@keyframes hoverUpDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px); /* Adjust the distance as needed */
+  }
+}

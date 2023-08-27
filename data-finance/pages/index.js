@@ -6,6 +6,13 @@ import laptop from "../public/laptop.jpg";
 import single from "../public/single.png";
 import triple from "../public/triple.png";
 import double from "../public/double.png";
+import {
+  FaDribbbleSquare,
+  FaFacebookSquare,
+  FaGithubSquare,
+  FaInstagram,
+  FaTwitterSquare,
+} from 'react-icons/fa';
 
 
 export default function Home() {
@@ -27,11 +34,11 @@ export default function Home() {
         <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
           <h1 className="w-full text-2xl font-bold text-green-300">ENVISION.</h1>
           <ul className="hidden md:flex">
-            <li className="p-4">Home</li>
-            <li className="p-4">Company</li>
-            <li className="p-4">Resources</li>
-            <li className="p-4">About</li>
-            <li className="p-4">Contact</li>
+          <a href="#"><li className="p-4">Home</li></a>
+            <a href="#"><li className="p-4">Company</li></a>
+            <a href="#"><li className="p-4">Resources</li></a>
+            <a href="#"><li className="p-4">About</li></a>
+            <a href="#"><li className="p-4">Contact</li></a>
           </ul>
           <div onClick={handleNav} className="block md:hidden">
             {nav ? <AiOutlineMenu size={20} /> : <AiOutlineClose  size={20} />}
@@ -39,11 +46,11 @@ export default function Home() {
           <div className={!nav ? "fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500" : 'ease-in-out duration-500 fixed left-[-100%]'}>
             <h1 className="w-full text-2xl font-bold text-green-300 m-4">ENVISION.</h1>
             <ul className="uppercase p-4">
-              <li className="p-4 border-b border-gray-600">Home</li>
-              <li className="p-4 border-b border-gray-600">Company</li>
-              <li className="p-4 border-b border-gray-600">Resources</li>
-              <li className="p-4 border-b border-gray-600">About</li>
-              <li className="p-4">Contact</li>
+              <a href="#"><li className="p-4 border-b border-gray-600">Home</li></a>
+              <a href="#"><li className="p-4 border-b border-gray-600">Company</li></a>
+              <a href="#"><li className="p-4 border-b border-gray-600">Resources</li></a>
+              <a href="#"><li className="p-4 border-b border-gray-600">About</li></a>
+              <a href="#"><li className="p-4">Contact</li></a>
             </ul>
           </div>
         </div>
@@ -67,7 +74,9 @@ export default function Home() {
         {/* Analytics Dashboard */}
         <div className='w-full bg-white py-16 px-4'>
       <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
+      <div className='relative w-[500px] mx-auto my-4 hover-up-down'>
         <Image  alt="laptop" src={laptop} className='w-[500px] mx-auto my-4'   />
+        </div>
         <div className='flex flex-col justify-center'>
           <p className='text-[#00df9a] font-bold '>DATA ANALYTICS DASHBOARD</p>
           <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2 text-black'>Manage Data Analytics Centrally</h1>
@@ -100,7 +109,7 @@ export default function Home() {
           </div>
           <p>
             We care about the protection of your data. Read our{' '}
-            <span className='text-[#00df9a]'>Privacy Policy.</span>
+            <a href="#"><span className='text-[#00df9a]'>Privacy Policy.</span></a>
           </p>
         </div>
       </div>
@@ -141,6 +150,58 @@ export default function Home() {
               </div>
               <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Start 7 Day Free Trial</button>
           </div>
+      </div>
+    </div>
+    {/* Footer */}
+    <div className='max-w-[1240px] mx-auto py-16 px-4 grid lg:grid-cols-3 gap-8 text-gray-300'>
+      <div>
+        <h1 className='w-full text-3xl font-bold text-[#00df9a]'>ENVISON.</h1>
+        <p className='py-4'>Stay connected with us on social media or click these links to explore what makes us the top data financing company of 2023.</p>
+        <div className='flex justify-between md:w-[75%] my-6'>
+        <a href="#"><FaFacebookSquare size={30} /></a>
+        <a href="#"><FaInstagram size={30} /></a>
+        <a href="#"><FaTwitterSquare size={30} /></a>
+        <a href="#"><FaGithubSquare size={30} /></a>
+        <a href="#"><FaDribbbleSquare size={30} /></a>
+        </div>
+      </div>
+      <div className='lg:col-span-2 flex justify-between mt-6'>
+    <div>
+        <a href="#"><h6 className='font-medium text-[#00df9a]'>Solutions</h6></a>
+        <ul>
+        <a href="#"><li className='py-2 text-sm'>Analytics</li></a>
+        <a href="#"><li className='py-2 text-sm'>Marketing</li></a>
+        <a href="#"><li className='py-2 text-sm'>Commerce</li></a>
+        <a href="#"><li className='py-2 text-sm'>Insights</li></a>
+        </ul>
+    </div>
+    <div>
+    <a href="#"><h6 className='font-medium text-[#00df9a]'>Support</h6></a>
+        <ul>
+        <a href="#"><li className='py-2 text-sm'>Pricing</li></a>
+        <a href="#"><li className='py-2 text-sm'>Documentation</li></a>
+        <a href="#"><li className='py-2 text-sm'>Guides</li></a>
+        <a href="#"><li className='py-2 text-sm'>API Status</li></a>
+        </ul>
+    </div>
+    <div>
+    <a href="#"><h6 className='font-medium text-[#00df9a]'>Company</h6></a>
+        <ul>
+        <a href="#"><li className='py-2 text-sm'>About</li></a>
+        <a href="#"><li className='py-2 text-sm'>Blog</li></a>
+        <a href="#"><li className='py-2 text-sm'>Jobs</li></a>
+        <a href="#"><li className='py-2 text-sm'>Press</li></a>
+        <a href="#"><li className='py-2 text-sm'>Careers</li></a>
+        </ul>
+    </div>
+    <div>
+    <a href="#"><h6 className='font-medium text-[#00df9a]'>Legal</h6></a>
+        <ul>
+        <a href="#"><li className='py-2 text-sm'>Claim</li></a>
+        <a href="#"><li className='py-2 text-sm'>Policy</li></a>
+        <a href="#"><li className='py-2 text-sm'>Terms</li></a>
+        </ul>
+    </div>
       </div>
     </div>
       </main>
