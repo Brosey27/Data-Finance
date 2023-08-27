@@ -2,6 +2,7 @@ import react, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Image from "next/image";
 import Head from "next/head";
+import laptop from "../public/laptop.jpg";
 
 
 export default function Home() {
@@ -60,6 +61,20 @@ export default function Home() {
         <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'>Get Started</button>
           </div>
         </div>
+        {/* Analytics Dashboard */}
+        <div className='w-full bg-white py-16 px-4'>
+      <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
+        <Image  alt="laptop" src={laptop} className='w-[500px] mx-auto my-4'   />
+        <div className='flex flex-col justify-center'>
+          <p className='text-[#00df9a] font-bold '>DATA ANALYTICS DASHBOARD</p>
+          <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2 text-black'>Manage Data Analytics Centrally</h1>
+          <p className="text-black">
+          Rich datasets and unmatched AI technology are employed to power the accuracy of our scalable, real-time credit decisioning systems.
+          </p>
+          <button className='bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3'>Get Started</button>
+        </div>
+      </div>
+    </div>
       </main>
     </div>
   );
