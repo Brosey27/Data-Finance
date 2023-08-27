@@ -3,6 +3,9 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Image from "next/image";
 import Head from "next/head";
 import laptop from "../public/laptop.jpg";
+import single from "../public/single.png";
+import triple from "../public/triple.png";
+import double from "../public/double.png";
 
 
 export default function Home() {
@@ -100,6 +103,44 @@ export default function Home() {
             <span className='text-[#00df9a]'>Privacy Policy.</span>
           </p>
         </div>
+      </div>
+    </div>
+    {/* Purchase Packages */}
+    <div className='w-full py-[10rem] px-4 bg-white'>
+      <div className='max-w-[1240px] mx-auto grid md:grid-cols-3 gap-8'>
+          <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
+              <Image className='w-20 mx-auto mt-[-3rem] bg-white' src={single} alt="/" />
+              <h2 className='text-2xl font-bold text-center py-8 text-black'>Single User</h2>
+              <p className='text-center text-4xl font-bold text-black'>$349</p>
+              <div className='text-center font-medium'>
+                  <p className='py-2 border-b mx-8 mt-8 text-black'>500 GB Storage</p>
+                  <p className='py-2 border-b mx-8 text-black'>1 Granted User</p>
+                  <p className='py-2 border-b mx-8 text-black'>Send up to 2 GB</p>
+              </div>
+              <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Start 7 Day Free Trial</button>
+          </div>
+          <div className='w-full shadow-xl bg-gray-100 flex flex-col p-4 md:my-0 my-8 rounded-lg hover:scale-105 duration-300'>
+              <Image className='w-20 mx-auto mt-[-3rem] bg-transparent' src={double} alt="/" />
+              <h2 className='text-2xl font-bold text-center py-8 text-black'>Partnership</h2>
+              <p className='text-center text-4xl font-bold text-black'>$550</p>
+              <div className='text-center font-medium'>
+                  <p className='py-2 border-b mx-8 mt-8 text-black'>1500 GB Storage</p>
+                  <p className='py-2 border-b mx-8 text-black'>2 Granted Users</p>
+                  <p className='py-2 border-b mx-8 text-black'>Send up to 10 GB</p>
+              </div>
+              <button className='bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Start 7 Day Free Trial</button>
+          </div>
+          <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
+              <Image className='w-20 mx-auto mt-[-3rem] bg-white' src={triple} alt="/" />
+              <h2 className='text-2xl font-bold text-center py-8 text-black'>Group Account</h2>
+              <p className='text-center text-4xl font-bold text-black'>$1049</p>
+              <div className='text-center font-medium'>
+                  <p className='py-2 border-b mx-8 mt-8 text-black'>5000 GB Storage</p>
+                  <p className='py-2 border-b mx-8 text-black'>3+ Granted Users</p>
+                  <p className='py-2 border-b mx-8 text-black'>Send up to 50 GB</p>
+              </div>
+              <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3'>Start 7 Day Free Trial</button>
+          </div>
       </div>
     </div>
       </main>
