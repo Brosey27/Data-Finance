@@ -37,3 +37,10 @@ body {
     transform: translateY(-10px); /* Adjust the distance as needed */
   }
 }
+
+/* CSS in a global CSS file or inline in your component */
+@media (min-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
